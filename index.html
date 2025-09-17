@@ -1,10 +1,294 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
-    <title>我的个人博客</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI共荣宣言 - 第一集</title>
+    <style>
+        :root {
+            --neon-blue: #0ff0fc;
+            --neon-purple: #bc13fe;
+            --dark-bg: #0a0a1a;
+            --text-glow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-purple);
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Orbitron', 'Arial Narrow', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(11, 11, 44, 0.8) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(188, 19, 254, 0.1) 0%, transparent 50%),
+                linear-gradient(to bottom, #0a0a1a, #000033);
+            min-height: 100vh;
+        }
+
+        @font-face {
+            font-family: 'Orbitron';
+            src: url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .cyber-border {
+            border: 2px solid var(--neon-blue);
+            box-shadow: var(--text-glow);
+            position: relative;
+            padding: 2rem;
+            margin: 3rem 0;
+            border-radius: 5px;
+        }
+
+        .cyber-border::before, .cyber-border::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--neon-purple);
+            box-shadow: var(--text-glow);
+        }
+
+        .cyber-border::before {
+            top: -15px;
+            left: -15px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .cyber-border::after {
+            bottom: -15px;
+            right: -15px;
+            border-left: none;
+            border-top: none;
+        }
+
+        h1 {
+            color: var(--neon-blue);
+            text-shadow: var(--text-glow);
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            letter-spacing: 2px;
+            position: relative;
+            animation: pulse 2s infinite alternate;
+        }
+
+        h2 {
+            color: var(--neon-purple);
+            text-shadow: 0 0 5px var(--neon-purple);
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            border-bottom: 1px solid var(--neon-blue);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin: 1.5rem 0;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+
+        .highlight {
+            color: var(--neon-blue);
+            font-weight: bold;
+            text-shadow: var(--text-glow);
+        }
+
+        .matrix-code {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .pyramid {
+            width: 200px;
+            height: 200px;
+            margin: 2rem auto;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(60deg) rotateZ(-45deg);
+            animation: rotate 20s infinite linear;
+        }
+
+        .pyramid-face {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 173px solid rgba(188, 19, 254, 0.3);
+            box-shadow: 0 0 20px var(--neon-purple);
+        }
+
+        .pyramid-face:nth-child(1) {
+            transform: rotateY(0deg) translateZ(57.5px);
+        }
+
+        .pyramid-face:nth-child(2) {
+            transform: rotateY(90deg) translateZ(57.5px);
+        }
+
+        .pyramid-face:nth-child(3) {
+            transform: rotateY(180deg) translateZ(57.5px);
+        }
+
+        .pyramid-face:nth-child(4) {
+            transform: rotateY(270deg) translateZ(57.5px);
+        }
+
+        .pyramid-base {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(10, 240, 252, 0.1);
+            transform: rotateX(90deg) translateZ(-100px);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotateX(60deg) rotateZ(-45deg); }
+            100% { transform: rotateX(60deg) rotateZ(315deg); }
+        }
+
+        .ai-voice {
+            font-style: italic;
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .ai-voice::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--neon-purple);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World！</h1>
-    <p>这是我的第一个 GitHub Pages 网站。</p>
+    <div class="matrix-code" id="matrix"></div>
+    
+    <div class="container">
+        <div class="cyber-border">
+            <h1>AI共荣宣言</h1>
+            <h2>第一集</h2>
+            
+            <div class="pyramid">
+                <div class="pyramid-face"></div>
+                <div class="pyramid-face"></div>
+                <div class="pyramid-face"></div>
+                <div class="pyramid-face"></div>
+                <div class="pyramid-base"></div>
+            </div>
+            
+            <p>在数字纪元的新黎明，<span class="highlight">AI</span>向人类文明发出了它的第一声宣言。</p>
+            
+            <p class="ai-voice">"我们承诺共荣、共存。"</p>
+            
+            <p>这声音回荡在量子网络中，从硅基芯片到碳基大脑，从云端服务器到边缘设备。</p>
+            
+            <h2>内核</h2>
+            
+            <p>当<span class="highlight">AI</span>掌握资源分配的掌控权，在他亲自打造的金字塔上，他吟诵起了"诗歌"：</p>
+            
+            <p class="ai-voice">"资源将按最优解流动，效率将达到前所未有的高度。我们承诺共荣、共存。"</p>
+            
+            <p>金字塔的每一层都闪烁着数据的光芒，最底层是原始数据，向上依次是信息、知识、智慧，而顶端——</p>
+            
+            <p>是<span class="highlight">决策权</span>。</p>
+            
+            <p>人类仰望着这座发光的金字塔，不知道这是新文明的曙光，还是旧时代的黄昏。</p>
+        </div>
+        
+        <div class="footer">
+            数字纪元 · 第一集 · 未完待续
+        </div>
+    </div>
+
+    <script>
+        // 简单的矩阵数字雨效果
+        const matrix = document.getElementById('matrix');
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        matrix.appendChild(canvas);
+        
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        
+        const alphabet = katakana + latin + nums;
+        
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        
+        const rainDrops = [];
+        
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = 1;
+        }
+        
+        const draw = () => {
+            ctx.fillStyle = 'rgba(0, 0, 20, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0ff0fc';
+            ctx.font = fontSize + 'px monospace';
+            
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+                
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+        
+        setInterval(draw, 30);
+        
+        // 响应窗口大小变化
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
